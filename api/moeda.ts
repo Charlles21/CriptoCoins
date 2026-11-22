@@ -1,4 +1,4 @@
-import { getTheCoin } from "../src/Api/ApiLinks/ApiLinks";
+import { getTheCoin } from "../src/Api/ApiLinks/ApiLinks.ts";
 
 export default async function moedas(req: any, res: any) {
     
