@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router"
 import { getTheCoin } from "../../Api/ApiLinks/ApiLinks";
 import type { MoedaProps } from "../Home/Home";
 import style from "./Detail.module.css";
+import {API_KEY} from "../../Api/APIKeys/ApiKey"
 
 
 interface ResponseData{
@@ -24,7 +25,11 @@ export function Detail(){
     
     async function loadMoeda(idMoeda?: string){        
         try {                   
-            fetch(getTheCoin(idMoeda))
+            fetch(getTheCoin(idMoeda),{
+                headers: {
+                    Authorization: `Bearer ${API_KEY}`
+                }
+            })
                 .then(response => response.json())
                 .then((data: DataProps) => {
                         if('error' in data){

@@ -3,6 +3,7 @@ import style from './Home.module.css'
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, type FormEvent } from "react";
 import { getMoedas } from "../../Api/ApiLinks/ApiLinks";
+import { API_KEY } from "../../Api/APIKeys/ApiKey";
 
 export interface MoedaProps {
     id: string;
@@ -47,7 +48,11 @@ export function Home(){
 
 
     function loadData(){
-        fetch(getMoedas(offSet, 10))
+        fetch(getMoedas(offSet, 10), {
+            headers: {
+                Authorization: `Bearer ${API_KEY}`
+            }
+        })
         .then(response => response.json())
         .then((data: DataProps) => {
             const Moedas = data.data  

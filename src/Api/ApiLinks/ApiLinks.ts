@@ -5,7 +5,7 @@ export function getMoedas(comeco: number, limite: number){
     if(limite == 0){
         limite = 10
     }    
-    return `https://rest.coincap.io/v3/assets?limit=${limite}&offset=${comeco}&apiKey=${API_KEY}`  
+    return `https://rest.coincap.io/v3/assets?limit=${limite}&offset=${comeco}`  
 }
 
 export function getTheCoin(IdMoeda?: string){   
@@ -14,7 +14,7 @@ export function getTheCoin(IdMoeda?: string){
         IdMoeda = '';    
     } 
     
-    return `https://rest.coincap.io/v3/assets/${IdMoeda}?apiKey=${API_KEY}`
+    return `https://rest.coincap.io/v3/assets/${IdMoeda}`
 }
 
 
