@@ -115,7 +115,7 @@ export function Home(){
                 <tbody>
                     {moedas.length > 0 && moedas.map((item) => (
                         <tr className={style.tr} key={item.id}>
-                        <td className={style.tdLabel} data-Label='Moeda'>
+                        <td className={style.tdLabel} data-label='Moeda'>
                             <div className={style.name}>
                                 <img className={style.logo}
                                     alt="Logo cripto"
@@ -126,16 +126,16 @@ export function Home(){
                                 </Link>
                             </div>
                         </td>
-                        <td className={style.tdLabel} data-Label='Valor de mercado'>
+                        <td className={style.tdLabel} data-label='Valor de mercado'>
                             {item.formatedMarket}   
                         </td>
-                        <td className={style.tdLabel} data-Label='Preço'>
+                        <td className={style.tdLabel} data-label='Preço'>
                             {item.formatedPrice}  
                         </td>
-                        <td className={style.tdLabel} data-Label='Volume'>
+                        <td className={style.tdLabel} data-label='Volume'>
                          {item.formatedVolume} 
                         </td>
-                        <td className={Number(item.changePercent24Hr) > 0 ? style.tdProfit : style.tdLoss} data-Label='Mudança 24h'>
+                        <td className={Number(item.changePercent24Hr) > 0 ? style.tdProfit : style.tdLoss} data-label='Mudança 24h'>
                           <span>{Number(item.changePercent24Hr).toFixed(3)+'%'}</span>  
                         </td>   
                     </tr> 
