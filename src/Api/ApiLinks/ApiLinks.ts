@@ -1,6 +1,3 @@
-import { API_KEY } from "../APIKeys/ApiKey";
-
-
 export function getMoedas(comeco: number, limite: number){
     if(limite == 0){
         limite = 10

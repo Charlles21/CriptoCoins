@@ -2,8 +2,6 @@ import { BsSearch } from "react-icons/bs";
 import style from './Home.module.css'
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, type FormEvent } from "react";
-import { getMoedas } from "../../Api/ApiLinks/ApiLinks";
-import { API_KEY } from "../../Api/APIKeys/ApiKey";
 
 export interface MoedaProps {
     id: string;
@@ -48,12 +46,8 @@ export function Home(){
 
 
     function loadData(){
-        fetch(getMoedas(offSet, 10), {
-            headers: {
-                Authorization: `Bearer ${API_KEY}`
-            }
-        })
-        .then(response => response.json())
+        fetch(`/api/assets?offset=${offSet}&limit=10`)
+        .then(async response => response.json())
         .then((data: DataProps) => {
             const Moedas = data.data  
            
@@ -110,11 +104,13 @@ export function Home(){
 
             <table>
                 <thead>
-                    <th scope="col">Moeda</th>
-                    <th scope="col">Valor de mercado</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Volume</th>
-                    <th scope="col">Mudança 24h</th>
+                    <tr>
+                        <th scope="col">Moeda</th>
+                        <th scope="col">Valor de mercado</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Volume</th>
+                        <th scope="col">Mudança 24h</th>
+                    </tr>                    
                 </thead>
                 <tbody>
                     {moedas.length > 0 && moedas.map((item) => (
