@@ -1,4 +1,4 @@
-import { getMoedas } from "./ApiLinks/ApiLinks";
+import { getMoedas } from "./ApiLinks/ApiLinks.ts";
 
 
 export default async function moedas(req: any, res: any) {
