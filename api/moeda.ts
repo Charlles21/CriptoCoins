@@ -1,11 +1,10 @@
-import { getTheCoin } from "../src/Api/ApiLinks/ApiLinks.ts";
+import { getTheCoin } from "./ApiLinks/ApiLinks";
 
 export default async function moedas(req: any, res: any) {
     
     const API_KEY = process.env.COIN_CAP_API_KEY;    
     
-    const {moeda} = req.query;
-    console.log(moeda)
+    const {moeda} = req.query;    
     try {
         const response = await fetch(
             getTheCoin(moeda),
