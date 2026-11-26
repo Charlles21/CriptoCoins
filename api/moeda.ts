@@ -1,4 +1,3 @@
-import { getTheCoin } from "./ApiLinks/ApiLinks.ts";
 
 export default async function moedas(req: any, res: any) {
     
@@ -6,8 +5,15 @@ export default async function moedas(req: any, res: any) {
     
     const {moeda} = req.query;    
     try {
+        if (!API_KEY) {
+            return res.status(500).json({
+                error: "COIN_CAP_API_KEY não configurada"
+            });
+        }
+    
+
         const response = await fetch(
-            getTheCoin(moeda),
+            `https://rest.coincap.io/v3/assets/${moeda}`,
             {
                 headers: {
                     Authorization: `Bearer ${API_KEY}`

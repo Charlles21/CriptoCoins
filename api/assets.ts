@@ -1,5 +1,3 @@
-import { getMoedas } from "./ApiLinks/ApiLinks.ts";
-
 
 export default async function moedas(req: any, res: any) {
     
@@ -16,7 +14,7 @@ export default async function moedas(req: any, res: any) {
         }
 
         const response = await fetch(
-            getMoedas(offset, limit),
+           `https://rest.coincap.io/v3/assets?limit=${limit}&offset=${offset}`,
             {
                 headers: {
                     Authorization: `Bearer ${API_KEY}`
