@@ -5,10 +5,17 @@ export default async function moedas(req: any, res: any) {
     
     const API_KEY = process.env.COIN_CAP_API_KEY;    
 
-    const { offset = "0", limit = "10" } = req.query;
+    const offset = Number(req.query.offset ?? 0);
+    const limit = Number(req.query.limit ?? 10);
+
+    if (!API_KEY) {
+    return res.status(500).json({
+        error: "COIN_CAP_API_KEY não configurada"
+    });
 
     try {
-        const response = await fetch(
+        const response = await fetch(                
+
             getMoedas(offset, limit),
             {
                 headers: {
