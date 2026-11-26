@@ -86,6 +86,7 @@ export function Home(){
 
     function handleLoadMore(){        
         SetOffSet(offSet + 10);
+        loadData();
     }
 
     return(
